@@ -1,23 +1,24 @@
+import 'package:_firstproject/signup.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   callUser('Kortede', x: 3);
   runApp(const MyApp());
-  Student korede = Student(
-    name: 'Korede',
-    cgpa: 3.2,
-    stdBioData: BioData(age: 32, height: 500),
-  );
+  // Student korede = Student(
+  //   name: 'Korede',
+  //   cgpa: 3.2,
+  //   stdBioData: BioData(age: 32, height: 500),
+  // );
 
   // korede.cgpa = 2.5;
   // korede.course = 'Flutter';
 
-  korede.setStdName = 'Hameed'; // Using a Setter
-  korede.stdName; // Using a Getter
-  print(korede.name);
-  print(korede.stdName);
+  // korede.setStdName = 'Hameed'; // Using a Setter
+  // korede.stdName; // Using a Getter
+  // print(korede.name);
+  // print(korede.stdName);
 
-  korede.callStudent();
+  // korede.callStudent();
 }
 
 class MyApp extends StatelessWidget {
@@ -27,6 +28,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        '/signup': (context) {
+          return SignUp();
+        },
+      },
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -47,6 +53,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         iconTheme: IconThemeData(color: Colors.black),
       ),
+
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -104,7 +111,9 @@ class _MyHomePageState extends State<MyHomePage> {
           SizedBox(
             child: IconButton(
               padding: EdgeInsets.all(2),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed('/signup');
+              },
               icon: Icon(Icons.add, color: Colors.white),
               style: ButtonStyle(
                 backgroundColor: WidgetStatePropertyAll(Colors.green),
